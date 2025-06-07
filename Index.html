@@ -1,1 +1,168 @@
-d
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonÉpargne - Planificateur d'épargne intelligent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <i class="fas fa-piggy-bank logo-icon"></i>
+                <h1>MonÉpargne</h1>
+            </div>
+            <div class="header-actions">
+                <span class="user-greeting">Planifiez votre épargne ! 🎯</span>
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="planner">Planificateur</button>
+            <button class="nav-tab" data-tab="tracking">Suivi</button>
+            <button class="nav-tab" data-tab="objectives">Objectifs</button>
+        </nav>
+
+        <!-- Onglet Planificateur -->
+        <div id="planner" class="tab-content active">
+            <div class="planner-form">
+                <!-- Section Capacité d'épargne -->
+                <section class="form-section">
+                    <h2><i class="fas fa-wallet"></i> Votre capacité d'épargne</h2>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="monthlySavingsCapacity">Combien pouvez-vous épargner par mois ? (Fr)</label>
+                            <input type="number" id="monthlySavingsCapacity" placeholder="ex: 1500" min="0" step="100">
+                            <small>Montant que vous pouvez mettre de côté chaque mois</small>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section Objectif d'épargne -->
+                <section class="form-section">
+                    <h2><i class="fas fa-target"></i> Votre objectif</h2>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="savingsGoal">Montant à épargner (Fr)</label>
+                            <input type="number" id="savingsGoal" placeholder="ex: 200000" min="0" step="1000">
+                        </div>
+                        <div class="input-group">
+                            <label for="timeframe">Durée souhaitée (mois)</label>
+                            <input type="number" id="timeframe" placeholder="ex: 12" min="1" step="1">
+                        </div>
+                        <div class="input-group">
+                            <label for="goalDescription">Description de l'objectif</label>
+                            <input type="text" id="goalDescription" placeholder="ex: Achat d'une voiture">
+                        </div>
+                    </div>
+                </section>
+
+                <div class="actions">
+                    <button type="button" id="generatePlan" class="btn-primary">
+                        <i class="fas fa-magic"></i> Générer mes plans d'épargne
+                    </button>
+                    <button type="button" id="resetForm" class="btn-secondary">
+                        <i class="fas fa-redo"></i> Réinitialiser
+                    </button>
+                </div>
+
+                <!-- Résultats des plans -->
+                <div id="planResults" class="plan-results">
+                    <!-- Les plans d'épargne apparaîtront ici -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Suivi -->
+        <div id="tracking" class="tab-content">
+            <div class="tracking-container">
+                <!-- Progression principale -->
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Progression de votre objectif</h3>
+                    <div id="mainObjectiveCard" class="objective-card">
+                        <p class="no-objective">Définissez un objectif pour voir votre progression</p>
+                    </div>
+                </div>
+
+                <!-- Suivi quotidien -->
+                <div class="card">
+                    <h3><i class="fas fa-calendar-plus"></i> Ajouter une épargne</h3>
+                    <div class="daily-tracker">
+                        <div class="add-savings-form">
+                            <div class="input-group">
+                                <label for="savingsAmount">Montant épargné (Fr)</label>
+                                <input type="number" id="savingsAmount" min="0" step="0.01" placeholder="Montant à ajouter">
+                            </div>
+                            <div class="input-group">
+                                <label for="savingsDate">Date</label>
+                                <input type="date" id="savingsDate">
+                            </div>
+                            <button id="addSavings" class="btn-primary">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historique -->
+                <div class="card">
+                    <h3><i class="fas fa-history"></i> Historique des épargnes</h3>
+                    <div id="savingsHistory" class="savings-history">
+                        <p class="no-history">Aucune épargne enregistrée</p>
+                    </div>
+                </div>
+
+                <!-- Graphique hebdomadaire -->
+                <div class="card">
+                    <h3><i class="fas fa-chart-bar"></i> Évolution hebdomadaire</h3>
+                    <div class="chart-container">
+                        <canvas id="weeklyChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Objectifs -->
+        <div id="objectives" class="tab-content">
+            <div class="objectives-container">
+                <!-- Objectif principal -->
+                <div class="card">
+                    <h3><i class="fas fa-bullseye"></i> Objectif principal</h3>
+                    <div id="primaryObjective" class="objective-details">
+                        <p class="no-objective">Définissez un objectif dans le planificateur</p>
+                    </div>
+                </div>
+
+                <!-- Ajouter objectif secondaire -->
+                <div class="card">
+                    <h3><i class="fas fa-plus-circle"></i> Ajouter un objectif secondaire</h3>
+                    <div class="add-objective-form">
+                        <input type="text" id="newObjectiveTitle" placeholder="Titre de l'objectif">
+                        <input type="number" id="newObjectiveAmount" placeholder="Montant (Fr)" min="0">
+                        <input type="number" id="newObjectiveMonths" placeholder="Durée (mois)" min="1">
+                        <button id="addObjective" class="btn-primary">Ajouter</button>
+                    </div>
+                </div>
+
+                <!-- Objectifs secondaires -->
+                <div id="secondaryObjectives" class="secondary-objectives">
+                    <!-- Les objectifs secondaires apparaîtront ici -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+<footer> 
+    <p>©️ SikaTrack. Tout droits reservé.</p> 
+    <p> SikaTrack V1.0</p>
+</html>
