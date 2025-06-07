@@ -1,0 +1,769 @@
+
+/* Variables CSS pour les thèmes */
+:root {
+    --primary-color: #10b981;
+    --primary-light: rgba(16, 185, 129, 0.1);
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-lg: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+    --background: #0f172a;
+    --surface: #1e293b;
+    --card-bg: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border: #475569;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-lg: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid var(--border);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-greeting {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.theme-toggle {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Navigation */
+.nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: var(--surface);
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.nav-tab {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-tab.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.nav-tab:hover:not(.active) {
+    background: var(--primary-light);
+    color: var(--primary-color);
+}
+
+/* Contenu des onglets */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Sections et cartes */
+.form-section, .card {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px var(--shadow);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.form-section:hover, .card:hover {
+    box-shadow: 0 8px 30px var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.form-section h2, .card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Grilles */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.tracking-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.objectives-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Groupes d'input */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.input-group small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Boutons */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #059669);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+}
+
+.btn-danger {
+    background: var(--error-color);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Plans d'épargne */
+.plans-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.plan-header h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.savings-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.savings-plan-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.savings-plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--shadow-lg);
+}
+
+.savings-plan-card.feasible {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.savings-plan-card.challenging {
+    border-color: var(--warning-color);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.plan-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.plan-header-row h4 {
+    margin: 0;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.badge {
+    position: absolute;
+    top: -25px;
+    right: -10px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge.success {
+    background: var(--success-color);
+    color: white;
+}
+
+.badge.warning {
+    background: var(--warning-color);
+    color: white;
+}
+
+.plan-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.plan-frequency {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.plan-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--secondary-color);
+}
+
+.btn-plan {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plan-advice {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.plan-advice i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-top: 0.1rem;
+}
+
+/* Carte d'objectif */
+.objective-card {
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.objective-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.objective-info h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.amounts {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.amounts .saved {
+    color: var(--success-color);
+}
+
+.amounts .separator {
+    color: var(--text-secondary);
+    margin: 0 0.5rem;
+}
+
+.amounts .target {
+    color: var(--text-secondary);
+}
+
+.remaining {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.progress-circle-container {
+    flex-shrink: 0;
+}
+
+.progress-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-color) calc(var(--progress) * 1%), var(--border) 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.progress-circle::before {
+    content: '';
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    position: absolute;
+}
+
+.progress-text {
+    position: relative;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.selected-plan-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Suivi quotidien */
+.add-savings-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+/* Historique */
+.history-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--primary-light);
+    border-radius: 8px;
+}
+
+.total-saved {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.entries-count {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.history-date {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.history-amount {
+    font-weight: 700;
+    color: var(--success-color);
+}
+
+.btn-remove {
+    background: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-remove:hover {
+    background: #dc2626;
+}
+
+.history-note {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Objectifs */
+.objective-details {
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+.objective-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat .label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.stat .value {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.add-objective-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+.secondary-objectives {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.secondary-objective {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.objective-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.objective-header h4 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+/* Barres de progression */
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.8s ease;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Graphiques */
+.chart-container {
+    height: 300px;
+    padding: 1rem;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* États vides */
+.no-objective,
+.no-history {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .nav-tabs {
+        flex-direction: column;
+    }
+
+    .form-grid,
+    .tracking-container {
+        grid-template-columns: 1fr;
+    }
+
+    .add-savings-form,
+    .add-objective-form {
+        grid-template-columns: 1fr;
+    }
+
+    .objective-progress {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .history-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .objective-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section,
+    .card {
+        padding: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-section,
+.card {
+    animation: fadeIn 0.5s ease-out;
+}
