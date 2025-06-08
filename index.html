@@ -10,35 +10,25 @@
 </head>
 <body>
     <div class="container">
-        <header class="header">
-  
-
-    <div class="logo-section">
-        <i class="fas fa-piggy-bank logo-icon"></i>
-        <h1>SikaTrack</h1>
-    </div>
-
-    <div class="header-actions">
-        <span class="user-greeting">Planifiez votre épargne ! 🎯</span>
-        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">
-            <span class="theme-icon">🌙</span>
-        </button>
-    </div>
-</header>
+          <header class="header">
+            <div class="logo-section">
+                <i class="fas fa-piggy-bank logo-icon"></i>
+                <h1>SikaTrack</h1>
+            </div>
+            <div class="header-actions">
+                <span class="user-greeting">Planifiez votre épargne ! 🎯</span>
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
 
         <!-- Navigation -->
-        <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <span class="logo"><i class="fas fa-piggy-bank"></i> SikaTrack</span>
-        <button class="close-btn" onclick="toggleMenu()">&times;</button>
-    </div>
-    <ul class="sidebar-menu">
-        <li><button class="nav-tab" data-tab="planner">Planificateur</button></li>
-        <li><button class="nav-tab" data-tab="tracking">Suivi</button></li>
-        <li><button class="nav-tab" data-tab="objectives">Objectifs</button></li>
-        <li><button onclick="toggleTheme()">🌙 / ☀️</button></li>
-    </ul>
-</div>
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="planner">Planificateur</button>
+            <button class="nav-tab" data-tab="tracking">Suivi</button>
+            <button class="nav-tab" data-tab="objectives">Objectifs</button>
+        </nav>
 
         <!-- Onglet Planificateur -->
         <div id="planner" class="tab-content active">
