@@ -1,3 +1,11 @@
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+}
+
 class SavingsPlanner {
     constructor() {
         this.userData = {
