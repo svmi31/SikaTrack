@@ -1,4 +1,4 @@
-# 🪙 SikaTrack — Ton épargne, ton pouvoir 💥
+# SikaTrack — Ton épargne, ton pouvoir 💥
 
 Bienvenue dans **SikaTrack**, l'appli web qui transforme ta tirelire en plan stratégique 💰✨  
 Fini les "je vais économiser… un jour" ! Ici, on **traque**, on **planifie** et on **cartonne** nos objectifs d’épargne 🔥
@@ -19,7 +19,7 @@ Fini les "je vais économiser… un jour" ! Ici, on **traque**, on **planifie** 
 
 ## 🛠️ Technologies utilisées
 
-- 🧱 **HTML5** – la structure béton de l’appli
+- 🧱 **HTML5** – la structure de l’appli
 - 🎨 **CSS3** – pour un design épuré et responsive
 - ⚡ **JavaScript Vanilla** – pour les fonctionnalités dynamiques
 
@@ -51,7 +51,7 @@ Fini les "je vais économiser… un jour" ! Ici, on **traque**, on **planifie** 
 
 ## 📄 Licence
 
-Ce projet est sous licence 
+Droits d’auteur © 2025 Samuel Yapi – Tous droits réservés
 
 ---
 
