@@ -47,7 +47,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
 }
 
 /* Header */
@@ -55,13 +55,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     padding: 1.5rem 0;
     position: fixed;
     background-color: white; 
     z-index:1;
     width: 100%;
-    height:100%;
     border-bottom: 2px solid var(--border);
 }
 
@@ -121,7 +120,8 @@ body {
     background: var(--surface);
     padding: 0.5rem;
     border-radius: 12px;
-    padding-top: 5em;
+    position: relative;
+    top: 2em;
     border: 1px solid var(--border);
 }
 
