@@ -57,6 +57,8 @@ body {
     align-items: center;
     margin-bottom: 2rem;
     padding: 1.5rem 0;
+    position: fixed;
+    width: 100%;
     border-bottom: 2px solid var(--border);
 }
 
