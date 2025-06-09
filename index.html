@@ -38,9 +38,9 @@
                 <h2><i class="fas fa-wallet"></i> Votre capacité d'épargne</h2>
                 <div class="form-grid">
                 <div class="input-group">
-                <label for="monthlySavingsCapacity">Combien pouvez-vous épargner par mois ? (Fr)</label>
-                <input type="number" id="monthlySavingsCapacity" placeholder="ex: 1500" min="@" step:100>
-                    <small>Montant que vous pouvez mettre de côté chaque mois</small>
+                <label for="monthlySavingsCapacity">Combien pouvez-vous épargner par mois ? (FCFA)</label>
+                <input type="number" id="monthlySavingsCapacity" placeholder="exemple : 2000" min="@" step:100>
+                    <small>Un montant que vous pouvez mettre de côté chaque mois selon vos moyens</small>
             </div>
         </div>
         </section>
@@ -49,23 +49,23 @@
                     <h2><i class="fas fa-bullseye"></i> Votre objectif</h2>
                     <div class="form-grid">
                         <div class="input-group">
-                            <label for="savingsGoal">Montant à épargner (Fr)</label>
-                            <input type="number" id="savingsGoal" placeholder="ex: 200000" min="0" step="1000">
+                            <label for="savingsGoal">Montant à épargner (FCFA)</label>
+                            <input type="number" id="savingsGoal" placeholder="exemple: 200000" min="0" step="1000">
                         </div>
                         <div class="input-group">
-                            <label for="timeframe">Durée souhaitée (mois)</label>
-                            <input type="number" id="timeframe" placeholder="ex: 12" min="1" step="1">
+                            <label for="timeframe">Durée souhaitée (en mois)</label>
+                            <input type="number" id="timeframe" placeholder="exemple: 12" min="1" step="1">
                         </div>
                         <div class="input-group">
                             <label for="goalDescription">Description de l'objectif</label>
-                            <input type="text" id="goalDescription" placeholder="ex: Achat d'une voiture">
+                            <input type="text" id="goalDescription" placeholder="exemple: Achat d'un nouveau téléphone">
                         </div>
                     </div>
                 </section>
 
                 <div class="actions">
                     <button type="button" id="generatePlan" class="btn-primary">
-                        <i class="fas fa-magic"></i> Générer mes plans d'épargne
+                        <i class="fas fa-magic"></i> Voir mes plans d'épargne
                     </button>
                     <button type="button" id="resetForm" class="btn-secondary">
                         <i class="fas fa-redo"></i> Réinitialiser
